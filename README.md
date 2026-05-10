@@ -67,15 +67,15 @@
 
 | Programa | Prueba | Resultado |
 |---|---|---|
-| `mem_map` | Lectura de `/proc/[pid]/maps` y `pmap -x` en segunda terminal | Direcciones impresas coincidieron con los rangos del mapa ✅ |
-| `mem_map` | Ejecución simultánea de dos instancias comparando direcciones | Direcciones distintas en ambos procesos, confirma ASLR y aislamiento ✅ |
-| `heap_demo` | Ejecución con `valgrind --leak-check=full --track-origins=yes` | 0 errores, 0 fugas, 3 allocs y 3 frees ✅ |
-| `buggy_mem` | Ejecución con Valgrind | Detectó los 3 errores: buffer overflow, memory leak y use-after-free ✅ |
-| `buggy_mem_fixed` | Ejecución con Valgrind tras correcciones | 0 errores, 0 fugas. `ERROR SUMMARY: 0 errors from 0 contexts` ✅ |
-| `base_bounds` | Ejecución con VAs válidas e inválidas para procesos A, B y C | Traducciones correctas y excepciones generadas correctamente ✅ |
-| `paging_sim` | Ejecución con 8 VAs distintas | Traducciones correctas y PAGE FAULTs detectados para VPN=1 y VPN=15 ✅ |
-| `fragmentation` | Observación de direcciones y resultado de `malloc(1500)` | Patrón de 16 bytes confirmado; `malloc(1500)` exitoso por extensión del heap ✅ |
-| `tlb_locality` | 3 ejecuciones midiendo acceso secuencial vs aleatorio | Factor promedio de ~12x más lento en acceso aleatorio ✅ |
+| `mem_map` | Lectura de `/proc/[pid]/maps` y `pmap -x` en segunda terminal | Direcciones impresas coincidieron con los rangos del mapa  |
+| `mem_map` | Ejecución simultánea de dos instancias comparando direcciones | Direcciones distintas en ambos procesos, confirma ASLR y aislamiento  |
+| `heap_demo` | Ejecución con `valgrind --leak-check=full --track-origins=yes` | 0 errores, 0 fugas, 3 allocs y 3 frees  |
+| `buggy_mem` | Ejecución con Valgrind | Detectó los 3 errores: buffer overflow, memory leak y use-after-free  |
+| `buggy_mem_fixed` | Ejecución con Valgrind tras correcciones | 0 errores, 0 fugas. `ERROR SUMMARY: 0 errors from 0 contexts`  |
+| `base_bounds` | Ejecución con VAs válidas e inválidas para procesos A, B y C | Traducciones correctas y excepciones generadas correctamente  |
+| `paging_sim` | Ejecución con 8 VAs distintas | Traducciones correctas y PAGE FAULTs detectados para VPN=1 y VPN=15  |
+| `fragmentation` | Observación de direcciones y resultado de `malloc(1500)` | Patrón de 16 bytes confirmado; `malloc(1500)` exitoso por extensión del heap  |
+| `tlb_locality` | 3 ejecuciones midiendo acceso secuencial vs aleatorio | Factor promedio de ~12x más lento en acceso aleatorio  |
 
 ---
 
