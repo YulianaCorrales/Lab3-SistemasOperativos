@@ -4,7 +4,7 @@
 
 ---
 
-## a) Integrantes
+## Integrantes
 
 | Nombre | Correo | Documento |
 |---|---|---|
@@ -12,6 +12,18 @@
 | Hellen Jakeline Rubio Casas | hellen.rubio@udea.edu.co | 1001686406 |
 
 ---
+## a) Objetivo
+
+Esta práctica evalúa los conceptos fundamentales de la gestión de memoria en sistemas operativos modernos. A través de programas en C y herramientas de Linux, se comprueban empíricamente los mecanismos que el SO utiliza para ofrecer a cada proceso la ilusión de un espacio de direcciones privado y contiguo.
+
+Los temas abordados son:
+- Espacio de direcciones virtual y mapas de memoria (`/proc/maps`)
+- API de memoria dinámica en C (`malloc`, `realloc`, `free`) y detección de errores con Valgrind
+- Traducción de direcciones mediante Base & Bounds
+- Segmentación y fragmentación externa
+- Paginación y tabla de páginas
+- Gestión de espacio libre y estrategias de asignación
+- TLBs y su impacto en el rendimiento por localidad de memoria
 
 ## b) Documentación de funciones desarrolladas
 
@@ -114,3 +126,20 @@ Todos los programas fueron ejecutados por las estudiantes en su propio entorno y
 5. **La gestión de memoria opera en dos niveles complementarios.** El allocator de usuario (glibc/malloc) minimiza las syscalls al kernel reutilizando memoria en espacio de usuario, mientras que el kernel gestiona la memoria física real con buddy system y slab allocator. Esta separación es fundamental para el rendimiento: si cada `malloc` requiriera una syscall los programas serían órdenes de magnitud más lentos.
 
 6. **WSL impone limitaciones reales al análisis de bajo nivel.** La imposibilidad de usar `perf` para medir contadores de TLB directamente evidencia que la virtualización de WSL no expone completamente el hardware subyacente. En un entorno Linux nativo, herramientas como `perf stat` permitirían confirmar cuantitativamente los TLB misses y validar con precisión las hipótesis sobre localidad de memoria.
+
+## Bibliografía
+
+- Arpaci-Dusseau, R. H., & Arpaci-Dusseau, A. C. (2018). *Operating Systems: Three Easy Pieces*. Arpaci-Dusseau Books. Recuperado de [https://ostep.org](https://ostep.org)
+  - Capítulo 13: *The Abstraction: Address Spaces*
+  - Capítulo 14: *Interlude: Memory API*
+  - Capítulo 15: *Mechanism: Address Translation*
+  - Capítulo 16: *Segmentation*
+  - Capítulo 18: *Introduction to Paging*
+  - Capítulo 19: *Translation Lookaside Buffers*
+  - Capítulo 17: *Free-Space Management*
+
+- Documentación oficial de Valgrind. Recuperado de [https://valgrind.org/docs/manual/mc-manual.html](https://valgrind.org/docs/manual/mc-manual.html)
+
+- Linux man pages: `proc(5)`, `malloc(3)`, `free(3)`, `mmap(2)`. Recuperado de [https://man7.org/linux/man-pages](https://man7.org/linux/man-pages)
+
+- GNU C Library (glibc) — Memory Allocation. Recuperado de [https://www.gnu.org/software/libc/manual/html_node/Memory-Allocation.html](https://www.gnu.org/software/libc/manual/html_node/Memory-Allocation.html)
