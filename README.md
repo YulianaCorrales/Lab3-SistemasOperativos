@@ -93,7 +93,7 @@ Los temas abordados son:
 
 ## e) Video de sustentación
 
-> **Enlace:** *(pendiente — agregar enlace al video una vez grabado)*
+> **Enlace:** *(https://youtu.be/-j2Xmndb-9I)*
 
 ---
 
