@@ -9,7 +9,6 @@
 | Nombre | Correo | Documento |
 |---|---|---|
 | Yuliana Corrales Castaño | yuliana.corralesc@udea.edu.co | 39193015 |
-| Hellen Jakeline Rubio Casas | hellen.rubio@udea.edu.co | 1001686406 |
 
 ---
 ## a) Objetivo
